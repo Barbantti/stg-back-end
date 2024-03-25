@@ -11,7 +11,7 @@ import {
 import { IUser } from 'src/interfaces/interfaces';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
-import * as moment from 'moment';
+import moment  from 'moment';
 
 @Injectable()
 export class UsersService {
