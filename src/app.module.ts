@@ -21,6 +21,7 @@ import { EmployeesController } from './employees/employees.controller';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
+import { PrismaModule } from './prisma/prisma.module';
 import { PrismaService } from './prisma/prisma.service';
 import { Module, forwardRef } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -31,6 +32,7 @@ import { JwtModule } from '@nestjs/jwt';
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    forwardRef(() => PrismaModule),
     forwardRef(() =>ProjectsModule),
     forwardRef(() =>DeptEmpModule),
     forwardRef(() =>UsersModule),
