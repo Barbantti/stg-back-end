@@ -11,7 +11,7 @@ import {
 import { IUser } from 'src/interfaces/interfaces';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
-import * as moment from 'moment';
+import { format } from "date-fns";
 
 @Injectable()
 export class UsersService {
@@ -25,11 +25,9 @@ export class UsersService {
         data.password.toString(),
         await bcrypt.genSalt(),
       );
-      // Usando o moment para tratar a data de nascimento
+      // Usando o format para tratar a data de nascimento
       if (data.birthDate) {
-        data.birthDate = moment(data.birthDate, 'YYYY-MM-DD').format(
-          'YYYY-MM-DDT00:00:00.000-00:00',
-        );
+        data.birthDate = format(new Date(data.birthDate), 'yyyy-MM-dd\'T\'HH:mm:ss.SSSxxx');
       }
 
       // Apos tratar os dados checamos se o email ja existe na base de dados
@@ -99,11 +97,9 @@ export class UsersService {
         data.password.toString(),
         await bcrypt.genSalt(),
       );
-      // Usando o moment para tratar a data de nascimento
+      // Usando o format para tratar a data de nascimento
       if (data.birthDate) {
-        data.birthDate = moment(data.birthDate, 'YYYY-MM-DD').format(
-          'YYYY-MM-DDT00:00:00.000-00:00',
-        );
+        data.birthDate = format(new Date(data.birthDate), 'yyyy-MM-dd\'T\'HH:mm:ss.SSSxxx');
       }
 
       // Apos dados serem tratados, atualizamos o cadastro do usuário

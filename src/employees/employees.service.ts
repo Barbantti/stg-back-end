@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { IEmployees } from 'src/interfaces/interfaces';
 import { PrismaService } from 'src/prisma/prisma.service';
-import * as moment from 'moment';
+import { format } from "date-fns";
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -25,17 +25,13 @@ export class EmployeesService {
         data.password.toString(),
         await bcrypt.genSalt(),
       );
-      // Usando o moment para tratar a data de nascimento
+      // Usando o format para tratar a data de nascimento
       if (data.birthDate) {
-        data.birthDate = moment(data.birthDate, 'YYYY-MM-DD').format(
-          'YYYY-MM-DDT00:00:00.000-00:00',
-        );
+        data.birthDate = format(new Date(data.birthDate), 'yyyy-MM-dd\'T\'HH:mm:ss.SSSxxx');
       }
-      // Usando o moment para tratar a data de contratação
+      // Usando o format para tratar a data de contratação
       if (data.hireDate) {
-        data.hireDate = moment(data.hireDate, 'YYYY-MM-DD').format(
-          'YYYY-MM-DDT00:00:00.000-00:00',
-        );
+        data.hireDate = format(new Date(data.hireDate), 'yyyy-MM-dd\'T\'HH:mm:ss.SSSxxx');
       }
 
       // Apos tratar os dados checamos se o email ja existe na base de dados
@@ -104,17 +100,13 @@ export class EmployeesService {
         data.password.toString(),
         await bcrypt.genSalt(),
       );
-      // Usando o moment para tratar a data de nascimento
+      // Usando o format para tratar a data de nascimento
       if (data.birthDate) {
-        data.birthDate = moment(data.birthDate, 'YYYY-MM-DD').format(
-          'YYYY-MM-DDT00:00:00.000-00:00',
-        );
+        data.birthDate = format(new Date(data.birthDate), 'yyyy-MM-dd\'T\'HH:mm:ss.SSSxxx');
       }
-      // Usando o moment para tratar a data de contratação
+      // Usando o format para tratar a data de contratação
       if (data.hireDate) {
-        data.hireDate = moment(data.hireDate, 'YYYY-MM-DD').format(
-          'YYYY-MM-DDT00:00:00.000-00:00',
-        );
+        data.hireDate = format(new Date(data.hireDate), 'yyyy-MM-dd\'T\'HH:mm:ss.SSSxxx');
       }
 
       // Apos dados serem tratados, atualizamos o cadastro do funcionário
