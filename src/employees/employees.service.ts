@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { IEmployees } from 'src/interfaces/interfaces';
 import { PrismaService } from 'src/prisma/prisma.service';
-import moment from 'moment';
+import * as moment from 'moment';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
