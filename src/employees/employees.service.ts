@@ -8,8 +8,8 @@ import {
   NotFoundException,
   BadRequestException,
 } from '@nestjs/common';
-import { IEmployees } from 'src/interfaces/interfaces';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { IEmployees } from '../interfaces/interfaces';
+import { PrismaService } from '../prisma/prisma.service';
 import { format } from "date-fns";
 import * as bcrypt from 'bcrypt';
 

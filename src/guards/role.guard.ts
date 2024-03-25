@@ -4,8 +4,8 @@
  */
 
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
-import { EmployeesService } from 'src/employees/employees.service';
-import { UsersService } from 'src/users/users.service';
+import { EmployeesService } from '../employees/employees.service';
+import { UsersService } from '../users/users.service';
 
 
 @Injectable()

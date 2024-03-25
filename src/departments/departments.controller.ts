@@ -12,8 +12,8 @@ import {
   Post,
 } from '@nestjs/common';
 import { DepartmentsService } from './departments.service';
-import { IDepartments } from "src/interfaces/interfaces";
-import { GetId } from 'src/decorators/param-id.decorator';
+import { IDepartments } from "../interfaces/interfaces";
+import { GetId } from '../decorators/param-id.decorator';
 
 @Controller('departments')
 export class DepartmentsController {

@@ -12,8 +12,8 @@ import {
   Post,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { IUser } from 'src/interfaces/interfaces';
-import { GetId } from 'src/decorators/param-id.decorator';
+import { IUser } from '../interfaces/interfaces';
+import { GetId } from '../decorators/param-id.decorator';
 
 @Controller('user')
 export class UsersController {

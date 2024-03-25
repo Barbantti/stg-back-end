@@ -10,10 +10,10 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { IUser, IEmployees, IResetPass } from "src/interfaces/interfaces";
-import { UserDecorator } from 'src/decorators/user.decorator';
-import { EmployeeDecorator } from 'src/decorators/employee.decorator';
-import { AuthGuard } from 'src/guards/auth.guard';
+import { IUser, IEmployees, IResetPass } from "../interfaces/interfaces";
+import { UserDecorator } from '../decorators/user.decorator';
+import { EmployeeDecorator } from '../decorators/employee.decorator';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('auth')
 export class AuthController {

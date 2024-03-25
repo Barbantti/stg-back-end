@@ -10,12 +10,12 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { UsersService } from 'src/users/users.service';
-import { EmployeesService } from 'src/employees/employees.service';
+import { PrismaService } from '../prisma/prisma.service';
+import { UsersService } from '../users/users.service';
+import { EmployeesService } from '../employees/employees.service';
 import * as bcrypt from 'bcrypt';
 import { User, Employees } from '@prisma/client';
-import { IEmployees, IUser } from 'src/interfaces/interfaces';
+import { IEmployees, IUser } from '../interfaces/interfaces';
 @Injectable()
 export class AuthService {
   private userIssuer = 'userLogin';

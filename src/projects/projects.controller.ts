@@ -13,11 +13,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
-import { IProjects } from 'src/interfaces/interfaces';
-import { GetId } from 'src/decorators/param-id.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
-import { RoleGuard } from 'src/guards/role.guard';
-import { AuthGuard } from 'src/guards/auth.guard';
+import { IProjects } from '../interfaces/interfaces';
+import { GetId } from '../decorators/param-id.decorator';
+import { Roles } from '../decorators/roles.decorator';
+import { RoleGuard } from '../guards/role.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('projects')
 export class ProjectsController {

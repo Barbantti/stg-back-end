@@ -8,8 +8,8 @@ import {
   NotFoundException,
   BadRequestException,
 } from '@nestjs/common';
-import { IProjects } from 'src/interfaces/interfaces';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { IProjects } from '../interfaces/interfaces';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class ProjectsService {

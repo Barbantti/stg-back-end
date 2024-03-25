@@ -13,11 +13,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { DeptEmpService } from './dept-emp.service';
-import { IDept_emp } from 'src/interfaces/interfaces';
-import { GetId } from 'src/decorators/param-id.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RoleGuard } from 'src/guards/role.guard';
+import { IDept_emp } from '../interfaces/interfaces';
+import { GetId } from '../decorators/param-id.decorator';
+import { Roles } from '../decorators/roles.decorator';
+import { AuthGuard } from '../guards/auth.guard';
+import { RoleGuard } from '../guards/role.guard';
 
 @Controller('dept-emp')
 export class DeptEmpController {

@@ -4,15 +4,15 @@
  */
 
 import { Module, forwardRef } from '@nestjs/common';
-import { PrismaModule } from 'src/prisma/prisma.module';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaModule } from '../prisma/prisma.module';
+import { PrismaService } from '../prisma/prisma.service';
 import { EmployeesController } from './employees.controller';
 import { EmployeesService } from './employees.service';
-import { AuthModule } from 'src/auth/auth.module';
-import { UsersModule } from 'src/users/users.module';
-import { ProjectsModule } from 'src/projects/projects.module';
-import { DepartmentsModule } from 'src/departments/departments.module';
-import { DeptEmpModule } from 'src/dept-emp/dept-emp.module';
+import { AuthModule } from '../auth/auth.module';
+import { UsersModule } from '../users/users.module';
+import { ProjectsModule } from '../projects/projects.module';
+import { DepartmentsModule } from '../departments/departments.module';
+import { DeptEmpModule } from '../dept-emp/dept-emp.module';
 
 @Module({
   imports: [
