@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  guid_user String     @id @default(uuid())
+  firstName String     @db.VarChar(75)
+  lastName  String     @db.VarChar(75)
+  birthDate DateTime   @db.Date
+  email     String     @unique @db.VarChar(75)
+  password  String     @db.VarChar(75)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  roleLevel RoleLevel? @default(user)
+  isActive  IsActive?  @default(true)
+  projects  Projects[]
+}
+
+model Employees {
+  guid_emp  String     @id @default(uuid())
+  firstName String     @db.VarChar(75)
+  lastName  String     @db.VarChar(75)
+  birthDate DateTime   @db.Date
+  hireDate  DateTime   @db.Date
+  wage      Decimal    @db.Decimal()
+  email     String     @unique @db.VarChar(75)
+  password  String     @db.VarChar(75)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  roleLevel RoleLevel? @default(employee)
+  isActive  IsActive?  @default(true)
+  dept_emp  Dept_emp[]
+  projects  Projects[]
+}
+
+model Departments {
+  guid_dept   String     @id @default(uuid())
+  deptName    String     @db.VarChar(75)
+  Observation String?    @db.VarChar(150)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  isActive    IsActive?  @default(true)
+  dept_emp    Dept_emp[]
+  projects    Projects[]
+}
+
+model Projects {
+  guid_projects      String      @id @default(uuid())
+  projectName        String      @db.VarChar(75)
+  projectDescription String      @db.VarChar(150)
+  status             Status?     @default(analise)
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  dept_guid          String
+  departments        Departments @relation(fields: [dept_guid], references: [guid_dept])
+  employees          Employees[]
+  user              User[]
+}
+
+model Dept_emp {
+  guid_deptEmp String      @id @default(uuid())
+  dept_guid    String
+  emp_guid     String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  departments  Departments @relation(fields: [dept_guid], references: [guid_dept])
+  employee     Employees   @relation(fields: [emp_guid], references: [guid_emp])
+}
+
+enum RoleLevel {
+  user
+  employee
+  admin
+  developer
+}
+
+enum Status {
+  analise
+  producao
+  Concluido
+}
+
+enum IsActive {
+  true
+  false
+}
