@@ -8,10 +8,10 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": " docker-compose up -d && nest start --watch; npm run stop:docker; npx prisma studio && nest start",
+    "start": " nest start",
     "dev": "docker-compose up -d && nest start --watch; npm run stop:docker; npx prisma studio",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "docker-compose up -d && nest start --watch; npm run stop:docker; npx prisma studio && node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
