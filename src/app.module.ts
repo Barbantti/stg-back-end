@@ -32,7 +32,7 @@ import { JwtModule } from '@nestjs/jwt';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    forwardRef(() => PrismaModule),
+    PrismaModule,
     forwardRef(() =>ProjectsModule),
     forwardRef(() =>DeptEmpModule),
     forwardRef(() =>UsersModule),

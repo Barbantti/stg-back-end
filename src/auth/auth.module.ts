@@ -21,7 +21,7 @@ import { JwtModule } from '@nestjs/jwt';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1 day' },
     }),
-    forwardRef(() => PrismaModule),
+    PrismaModule,
     forwardRef(() => DeptEmpModule),
     forwardRef(() => UsersModule),
     forwardRef(() => ProjectsModule),

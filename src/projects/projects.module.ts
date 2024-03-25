@@ -17,7 +17,7 @@ import { DepartmentsModule } from 'src/departments/departments.module';
 
 @Module({
   imports: [
-    forwardRef(() => PrismaModule),
+    PrismaModule,
     forwardRef(() => AuthModule),
     forwardRef(() => UsersModule),
     forwardRef(() => EmployeesModule),

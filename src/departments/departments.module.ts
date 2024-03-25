@@ -17,7 +17,7 @@ import { EmployeesModule } from 'src/employees/employees.module';
 
 @Module({
   imports: [
-    forwardRef(() => PrismaModule),
+    PrismaModule,
     forwardRef(() => DeptEmpModule),
     forwardRef(() => UsersModule),
     forwardRef(() => ProjectsModule),
