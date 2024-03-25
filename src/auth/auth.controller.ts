@@ -27,7 +27,8 @@ export class AuthController {
 
   // Rota para login autenticado
   @Post('employee/login') 
-  async employeeLogin(@Body() {email, password}: IEmployees) {
+  async employeeLogin(@Body() { email, password }: IEmployees) {
+    console.log('email, password: ', email, password);
     return await this.authService.employeeLogin(email, password);
   }
 
